@@ -1,0 +1,518 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"g",
+				"gwpm"
+			],
+			[
+				"mi",
+				"mistakes"
+			],
+			[
+				"has",
+				"hasStarted"
+			],
+			[
+				"ne",
+				"nextRound"
+			],
+			[
+				"mik",
+				"mistakesMap"
+			],
+			[
+				"mista",
+				"mistakesMap"
+			],
+			[
+				"upda",
+				"updateMistakes"
+			],
+			[
+				"get",
+				"getDict"
+			],
+			[
+				"loc",
+				"locationReq"
+			],
+			[
+				"lo",
+				"locationReq"
+			],
+			[
+				"flo",
+				"floorRequest"
+			],
+			[
+				"fl",
+				"floorRequest"
+			],
+			[
+				"des",
+				"destinationQueue"
+			],
+			[
+				"floor",
+				"floorNum"
+			],
+			[
+				"pro",
+				"profile"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"th",
+				"thead	Tag"
+			],
+			[
+				"action",
+				"actionName"
+			],
+			[
+				"co",
+				"controller"
+			],
+			[
+				"act",
+				"actionName"
+			],
+			[
+				"con",
+				"controllerName"
+			],
+			[
+				"new",
+				"newVal"
+			],
+			[
+				"init",
+				"initView"
+			],
+			[
+				"ini",
+				"initView"
+			],
+			[
+				"content",
+				"contentPanel"
+			],
+			[
+				"j",
+				"jquery"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"bo",
+				"border-color"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"cel",
+				"cellspacing	Attr"
+			],
+			[
+				"ca",
+				"cellpadding	Attr"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"ce",
+				"cellspacing	Attr"
+			],
+			[
+				"Portfol",
+				"PortfolioConnect"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: In",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/David/Documents/typerh",
+		"/C/Users/David/Documents/typerh/app",
+		"/C/Users/David/Documents/typerh/app/scripts",
+		"/C/Users/David/Documents/typerh/app/styles"
+	],
+	"file_history":
+	[
+		"/C/Users/David/Documents/typerh/Gruntfile.js",
+		"/C/Users/David/Documents/typerh/app/index.html",
+		"/C/Users/David/Documents/typerh/app/scripts/main.js",
+		"/C/Users/David/Documents/typerh/app/styles/main.css",
+		"/C/Users/David/Documents/typerh/app/scripts/dicts/java.json",
+		"/C/Users/David/Documents/typerh/app/scripts/dicts/js.json",
+		"/C/Users/David/Documents/typerh/bower.json",
+		"/C/Users/David/Downloads/download",
+		"/C/grapevine/server/api/location/location.controller.js",
+		"/C/grapevine/client/app/location/location_show.controller.js",
+		"/C/grapevine/server/api/location/location.model.js",
+		"/C/grapevine/server/api/device/device.model.js",
+		"/C/grapevine/server/api/device/index.js",
+		"/C/grapevine/server/auth/auth.service.js",
+		"/C/grapevine/server/api/device/device.controller.js",
+		"/C/grapevine/client/app/company/company_show.controller.js",
+		"/C/grapevine/client/app/company/company_show.html",
+		"/C/grapevine/server/api/user/user.controller.js",
+		"/C/grapevine/server/api/company/company.controller.js",
+		"/C/grapevine/client/app/location/location_create.html",
+		"/C/grapevine/client/components/navbar/navbar.controller.js",
+		"/C/grapevine/client/components/navbar/navbar.html",
+		"/C/grapevine/client/app/location/location_create.controller.js",
+		"/C/grapevine/client/components/services/location/location.service.js",
+		"/C/grapevine/server/api/report/report.controller.js",
+		"/C/grapevine/server/api/report/report.model.js",
+		"/C/grapevine/client/components/services/company/company.service.js",
+		"/C/grapevine/server/api/company/company.model.js",
+		"/C/grapevine/client/components/auth/auth.service.js",
+		"/C/grapevine/server/config/seed.js",
+		"/C/grapevine/client/app/admin/user_create.controller.js",
+		"/C/grapevine/server/config/environment/index.js",
+		"/C/grapevine/client/app/device/device.html",
+		"/C/grapevine/client/components/services/device/device.service.js",
+		"/C/grapevine/client/app/device/device.js",
+		"/C/grapevine/client/app/location/location_show.html",
+		"/C/grapevine/server/api/user/user.model.js",
+		"/C/grapevine/client/index.html",
+		"/C/grapevine/server/api/event/event.model.js",
+		"/C/grapevine/client/app/location/location.js",
+		"/C/grapevine/server/api/event/event.controller.js",
+		"/C/grapevine/client/app/account/account.js",
+		"/C/Users/David/Downloads/groups.1.4.12/groups/lib/access/class-groups-access-meta-boxes.php",
+		"/C/Users/David/Desktop/elevatorgame.js",
+		"/C/Program Files (x86)/Steam/SteamApps/common/Starbound/win32/sbboot.config",
+		"/C/grapevine/client/app/account/profile/profile.html",
+		"/C/grapevine/client/app/account/profile/profile.controller.js",
+		"/C/grapevine/server/api/checkpoint/checkpoint.model.js",
+		"/C/grapevine/client/app/company/company.js",
+		"/C/grapevine/server/api/sync/index.js",
+		"/C/grapevine/server/api/sync/sync.controller.js",
+		"/C/grapevine/server/api/patrol/patrol.model.js",
+		"/C/grapevine/server/routes.js",
+		"/C/grapevine/client/components/auth/user.service.js",
+		"/C/grapevine/client/app/admin/user_create.html",
+		"/C/grapevine/client/app/company/company_create.html",
+		"/C/grapevine/client/app/company/company_create.controller.js",
+		"/C/grapevine/client/app/account/settings/settings.controller.js",
+		"/C/grapevine/client/app/app.scss",
+		"/C/grapevine/client/app/location/location.controller.js",
+		"/C/grapevine/client/app/admin/admin.html",
+		"/C/grapevine/client/app/admin/admin.js",
+		"/C/grapevine/client/app/location/location.html",
+		"/C/grapevine/client/app/company/company.html",
+		"/C/grapevine/client/components/widgets/confirm/confirm_delete.html",
+		"/C/grapevine/client/components/widgets/confirm/confirm.html",
+		"/C/grapevine/server/api/location/index.js",
+		"/C/grapevine/client/app/account/login/login.html",
+		"/C/grapevine/client/app/account/login/login.controller.js",
+		"/C/grapevine/client/app/app.js",
+		"/C/grapevine/client/app/company/company.controller.js",
+		"/C/grapevine/bower.json",
+		"/C/grapevine/client/app/report/report.html",
+		"/C/grapevine/client/components/services/report/report.service.js",
+		"/C/grapevine/client/app/report/report.controller.js",
+		"/C/grapevine/client/app/report/report.js",
+		"/C/grapevine/client/app/account/signup/signup.html",
+		"/C/Users/David/Downloads/Crisis Management -PRA - NLS Group.pdf",
+		"/C/Users/David/Documents/app/PatrolEvent.json",
+		"/C/Users/David/Documents/app/Report.json",
+		"/C/Users/David/Documents/app/generated/com/grapevine/app/provider/GrapevineHelper.java",
+		"/C/Users/David/Documents/app/generated/com/grapevine/app/provider/GrapevineProvider.java",
+		"/C/Users/David/Documents/app/generated/com/grapevine/app/provider/report/ReportColumns.java",
+		"/C/grapevine/server/api/patrol/index.js",
+		"/C/grapevine/server/api/event/index.js",
+		"/C/grapevine/server/api/company/index.js",
+		"/C/grapevine/server/api/checkpoint/index.js",
+		"/C/grapevine/server/api/report/index.js",
+		"/C/grapevine/client/app/main/main.html",
+		"/C/grapevine/client/app/main/main.controller.js",
+		"/C/Users/David/potw/client/components/navbar/navbar.controller.js",
+		"/C/Users/David/potw/server/api/season/season.model.js",
+		"/C/grapevine/client/app/companies/show/show.html",
+		"/C/grapevine/node_modules/grunt-autoprefixer/node_modules/autoprefixer/lib/binary.js",
+		"/C/grapevine/client/app/companies/create/create.html",
+		"/C/grapevine/client/app/companies/companies.html",
+		"/C/grapevine/client/app/companies/companies.js",
+		"/C/grapevine/client/app/companies/show/show.controller.spec.js",
+		"/C/grapevine/client/app/companies/create/create.controller.js",
+		"/C/grapevine/client/components/factories/company/company.service.js",
+		"/C/grapevine/client/components/auth/company.service.js",
+		"/C/grapevine/client/app/companies/create/createCompany.controller.js",
+		"/C/grapevine/client/app/companies/companies.controller.js",
+		"/C/Users/David/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/C/grapevine/client/app/main/main.controller.spec.js",
+		"/C/grapevine/Gruntfile.js",
+		"/C/grapevine/client/app/admin/admin.controller.js",
+		"/C/grapevine/client/app/account/signup/signup.controller.js",
+		"/C/Users/David/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/David/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/grapevine/server/api/checkpoint/checkpoint.controller.js",
+		"/C/grapevine/grapevine.js",
+		"/C/grapevine/package.json",
+		"/C/Users/David/Desktop/functions.js",
+		"/C/Users/David/Desktop/New folder/ops.json",
+		"/C/Users/David/Desktop/New folder/server.properties",
+		"/C/Users/David/Desktop/New folder/usercache.json",
+		"/C/grapevine/app/modules/master/master.js",
+		"/C/grapevine/app/modules/login/login.js",
+		"/C/Users/David/Desktop/email.html",
+		"/C/grapevine/app/modules/dashboard/dashboard.js",
+		"/C/grapevine/app/models/App.js",
+		"/C/grapevine/app/models/Router.js",
+		"/C/grapevine/app/modules/login/init.ejs",
+		"/C/grapevine/views/index.ejs",
+		"/C/grapevine/app/models/App/App.js",
+		"/C/grapevine/app/models/Session.js",
+		"/C/grapevine/routes/index.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\grapevine\\server\\api",
+			"C:\\grapevine\\client"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"isArray",
+			"eviceCreateCtrl",
+			"Company",
+			"conso",
+			"ProcessorSystem",
+			"Processor",
+			"Furnace",
+			"tick",
+			"Logs",
+			"Lumberjack",
+			"Purchase",
+			"Purchase(",
+			"Gathereritem",
+			"rock",
+			"showDelete",
+			"company",
+			"div",
+			"company",
+			"Company",
+			"\n\n\n",
+			"\n\n\n\n",
+			"<td>&nbsp;",
+			"<em> </em>",
+			"&nbsp;</td>",
+			"<td>&nbsp; ",
+			"<td>&nbsp; &nbsp;",
+			"                <strong>\n                    <em> </em>\n                </strong>",
+			"<strong> </strong>",
+			"width=\"",
+			"</strong>",
+			"<strong>",
+			"&nbsp;",
+			"check",
+			"Mongoose.Schema",
+			"isLoggedIn",
+			"%2F",
+			"%2F/",
+			"');\n",
+			"script(src='bower_components/canjs/can.route.pushstate.js')",
+			"	",
+			"wire",
+			"’",
+			"“",
+			"”",
+			"  ",
+			" [a-z]\\. [A-Z]",
+			"WT",
+			"WIREDTIME",
+			"[0-9]\\. *[A-Z]",
+			"href=\"http://www.addthis.com/",
+			"<a class=\"addthis_button_reddit at300b\" href=\"http://www.addthis.com/",
+			"img class",
+			"auto"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Schema",
+			"GV",
+			"GRAPEVINE",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "typerh.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 271.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
