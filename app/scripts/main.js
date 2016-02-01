@@ -19,6 +19,7 @@
     	init: function(){
     		this.selectedLang = new can.Map({ lang: 'js' });
     		this.score = 0;
+            this.highestNwpm = 0;
     		this.nextRound();
     	},
 
@@ -26,6 +27,7 @@
     		this.mistakes = 0;
     		this.mistakesMap = {};
     		this.hasStarted = false;
+            this.highestNwpm = 0;
     		this.pickPhrase();
     	},
 
@@ -40,9 +42,36 @@
     		// Gross wpm and Net wpm
     		var gwpm = Math.round((this.userInput.length / 5) / (this.count / 60)),
     			nwpm = Math.round(gwpm - (this.mistakes / (this.count / 60) ));
+
+            this.highestNwpm = Math.max(this.highestNwpm, nwpm);
     		$("#gwpm").html(gwpm);
     		$("#nwpm").html(nwpm);
     	},
+
+        start: function(skipFocus){
+            $("button#start").prop('disabled', true);
+            $("button#reset").prop('disabled', false);
+            $("button#pause").prop('disabled', false);
+            if(skipFocus) {
+                $("#keyInput").focus();
+            }
+        },
+
+        reset: function(){
+            clearInterval(this.timer);
+            this.count = 0;
+            this.score = 0;
+            this.mistakesMap = {};
+            this.updateMistakes(-this.mistakes);
+            this.highestNwpm = 0;
+            $("#gwpm").html(0);
+            $("#nwpm").html(0);
+            $("button#reset").prop('disabled', true);
+            $("button#start").prop('disabled', false);
+            $("button#pause").prop('disabled', true);
+            $("#keyInput").val('').removeClass('bad good');
+            this.nextRound();
+        },
 
     	pickPhrase: function(){
     		var d = this.getDict(),
@@ -51,7 +80,7 @@
     	},
 
     	getDict: function(){
-    		return this.langs[this.selectedLang.attr("lang")];
+    		return this.langs[this.selectedLang.attr("lang").toLowerCase()];
     	},
 
     	updateScore: function(){
@@ -63,9 +92,23 @@
     		this.mistakes = this.mistakes + num;
     		$("#scoreboard #mistakes").html(this.mistakes);
     	},
+        
+        "#start:not('[disabled=disabled]') click": function(el, ev){
+            this.start();
+        },
+
+        "#pause:not('[disabled=disabled]') click": function(el, ev){
+            this.start();
+            el.prop('disabled', true);
+            $("button#start").prop('disabled', false);
+        },
+
+        "#reset:not('[disabled=disabled]') click": function(el, ev){
+            this.reset();
+        },
 
     	"#langSelect change": function(el, ev){
-    		this.selectedLang.attr("lang", $(el).val());
+    		this.selectedLang.attr("lang", $(el.children(":selected")).data('value'));
     		this.pickPhrase();
     	},
 
@@ -79,6 +122,7 @@
 
     		// Start timer whent the first letter is timed 
     		if(v.length === 1 && !this.hasStarted){
+                this.start(true);
     			this.hasStarted = true;
     			this.resetTimer();
     		}
@@ -99,8 +143,9 @@
     			if(!valid){
     				// Only count mistakes once
     				if(!hasMistake){ this.updateMistakes(1); }
+                    // Add the mistake character to the map
     				this.mistakesMap[i] = pl[i];
-    				break; 
+    				continue; 
     			}
 
     			// Remove a mistake from the map if it is corrected
@@ -110,7 +155,7 @@
     			}
     		};
 
-    		e.toggleClass('bad', !valid);
+    		e.toggleClass("bad", !valid);
     		e.toggleClass("good", valid);
 
     	}
