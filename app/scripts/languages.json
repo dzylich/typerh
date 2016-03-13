@@ -3,7 +3,7 @@
 		"Person.prototype.greet = function() {\n\tif (this.canTalk) {\n\t\tconsole.log('Hi, I am ' + this.name);\n\t}\n};",
 		"for(var x=1; x<array.length; x++){ }",
 		"if(shortObject.hasValue() && longObjectName.withAttribute){ return; }",
-		"switch(caseName){\n\tcase 0: \n\t\tdefine(obj.property); \n\t\tbreak; \n\tcase 1: \n\t\tContent.removeContentValue(); \n\tdefault: \n\t\tshowDesc(); \n\t\tbreak; \n}",
+		"switch(caseName){\n\tcase 0:\n\t\tdefine(obj.property);\n\t\tbreak;\n\tcase 1:\n\t\tContent.removeContentValue();\n\tdefault:\n\t\tshowDesc();\n\t\tbreak;\n}",
 		"var divStyle = window.getComputedStyle( div, null );",
 		"marginDiv = div.appendChild( document.createElement( \"div\" ) );"
 	],

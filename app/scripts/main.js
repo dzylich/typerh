@@ -3,6 +3,7 @@
     /**
      * Main module.
      * @module main
+     * @param {Object} options - Plain object containing langs attr with dictionaries
      */
     var Typerh = can.Control.extend({
     	pluginName: 'typerh'
@@ -21,7 +22,7 @@
 
         /** Reset round data and pick a new phrase*/
     	nextRound: function(){
-    		this.mistakes = 0;
+    		this._updateScoreState({mistakes: {value: 0}});
     		this.mistakesMap = {};
     		this.hasStarted = false;
             this.highestNwpm = 0;
@@ -43,47 +44,35 @@
     			nwpm = Math.round(gwpm - (this.mistakes / (this.count / 60) ));
 
             this.highestNwpm = Math.max(this.highestNwpm, nwpm);
-    		$('#gwpm').html(gwpm);
-    		$('#nwpm').html(nwpm);
+            this._updateScoreState({
+                gwpm: {value: gwpm},
+                nwpm: {value: nwpm}
+            });
     	},
 
-        /** 
-            Sets the control buttons states and focuses on the typing field 
-            @param {boolean} [doFocus] - true to focus cursor on typing field, false or null does nothing
-        */
-        start: function(doFocus){
-            $('button#start').prop('disabled', true);
-            $('button#reset').prop('disabled', false);
-            $('button#pause').prop('disabled', false);
-            if(doFocus) {
-                $('#keyInput').focus();
+        _updateScoreState: function(scoreObj){
+            for(var key in scoreObj){
+                this[key] = scoreObj[key].value;
+                if(scoreObj[key].animate){
+                    $('#scoreboard #' + key).animateCss(scoreObj[key].animate);
+                }
+                $('#scoreboard #' + key).html(this[key]);
             }
         },
 
-        /** Clean up scores, timers, and views */
-        reset: function(){
-            clearInterval(this.timer);
-            this.count = 0;
-            this.mistakesMap = {};
-            this.updateScore(0);
-            this.updateMistakes(-this.mistakes);
-            this.highestNwpm = 0;
-            $('#gwpm').html(0);
-            $('#nwpm').html(0);
-            $('button#reset').prop('disabled', true);
-            $('button#start').prop('disabled', false);
-            $('button#pause').prop('disabled', true);
-            $('#keyInput').val('').removeClass('bad good');
-            this.nextRound();
+        _updateButtonState: function(btnObj){
+            for(var key in btnObj){
+                $('.btn#' + key).toggleClass('disabled', btnObj[key]);
+            }
         },
 
         /**
             Pick a phrase from the dictionary and 
             update the line count for the phrase display
         */
-    	pickPhrase: function(){
-    		var d = this.getDict(),
-    			n = Math.floor(Math.random() * d.length);
+        pickPhrase: function(){
+            var d = this.getDict(),
+                n = Math.floor(Math.random() * d.length); // Pick a random index
 
             // Don't pick the same phrase twice in a row
             if(n === this._lastPhraseIndex){ 
@@ -99,50 +88,52 @@
             // Minimum field size is 60px;
             $('#phrase').height(Math.floor(newLineCount * 20, 60));
 
-            $("#lineCount").html('');
+            $("#phraseLineCount").html('');
+            $("#inputLineCount").html('');
             for (var i = 0; i < newLineCount; i++) {
-                $("#lineCount").append("<li></li>");
+                $("#phraseLineCount").append("<li></li>");
+                $("#inputLineCount").append("<li></li>");
             }
 
-			$('#phrase').val(phrase);
-    	},
+            $('#phrase').val(phrase);
+        },
 
         /** Returns an array of strings from the this.langs based on the selected language */
-    	getDict: function(){
-    		return this.langs[this.selectedLang.attr('lang').toLowerCase()];
-    	},
+        getDict: function(){
+            return this.langs[this.selectedLang.attr('lang').toLowerCase()];
+        },
 
-        /** Update the scoreboard with a new score
-            @param {number} [num] - Force the score to a specific value, null to incremember by 1
-        */
-    	updateScore: function(num){
-    		this.score = num ? num : this.score + 1;
-            $('#scoreboard #score').animateCss('flash');
-			$('#scoreboard #score').html(this.score);
-    	},
-
-        /** Update the scoreboard with new count of mistakes
-            @param {number} num - Number of mistakes to incremenent mistake count by
-        */
-    	updateMistakes: function(num){
-    		this.mistakes = this.mistakes + num;
-            $('#scoreboard #mistakes').animateCss('shake');
-    		$('#scoreboard #mistakes').html(this.mistakes);
-    	},
         
-        '#start:not(\'[disabled=disabled]\') click': function(){
-            this.start();
+        '#start:not(.disabled) click': function(el){
+            this._updateButtonState({start: true, reset: false, pause: false});
+            if(this.isPaused){
+                el.removeClass('pulse repeat');
+                this.isPaused = false;
+            }
+            $('#keyInput').focus();
         },
 
-        '#pause:not(\'[disabled=disabled]\') click': function(el){
-            this.start();
+        '#pause:not(.disabled) click': function(el){
             clearInterval(this.timer);
-            el.prop('disabled', true);
-            $('button#start').prop('disabled', false);
+            this.isPaused = true;
+            this._updateButtonState({start: false, pause: true});
+            $('.btn#start').addClass('pulse repeat');
         },
 
-        '#reset:not(\'[disabled=disabled]\') click': function(){
-            this.reset();
+        '#reset:not(.disabled) click': function(){
+            clearInterval(this.timer);
+            this.count = 0;
+            this.highestNwpm = 0;
+            this.mistakesMap = {};
+            this._updateScoreState({
+                score: {value: 0},
+                mistakes: {value: 0},
+                gwpm: {value: 0},
+                nwpm: {value: 0}
+            })
+            this._updateButtonState({start: false, reset: true, pause: true});
+            $('#keyInput').val('').removeClass('bad good');
+            this.nextRound();
         },
 
     	'#langSelect change': function(el){
@@ -173,27 +164,39 @@
 
     		// Start timer whent the first letter is typed 
     		if(v.length === 1 && !this.hasStarted){
-                this.start(true);
+                this._updateButtonState({start: true, reset: false, pause: false});
     			this.hasStarted = true;
     			this.resetTimer();
     		}
 
     		// Full match
     		if(v === pl){
-    			this.updateScore();
+    			this._updateScoreState({
+                    score: {
+                        value: this.score + 1,
+                        animate: 'flash'
+                    }
+                });
     			this.nextRound();
     			e.val('');
     			return;
     		}
 
     		// Count each character
-    		for (var i = 0; i < v.length; i++) {
+            for (var i = v.length - 1; i >= 0; i--) {
     			var hasMistake = typeof this.mistakesMap[i] !== 'undefined';
     			valid = v[i] === pl[i];
 
     			if(!valid){
     				// Only count mistakes once
-    				if(!hasMistake){ this.updateMistakes(1); }
+    				if(!hasMistake){
+                        this._updateScoreState({
+                            mistakes: {
+                                value: this.mistakes + 1,
+                                animate: 'shake'
+                            }
+                        });
+                    }
                     // Add the mistake character to the map
     				this.mistakesMap[i] = pl[i];
     				continue; 
@@ -201,7 +204,12 @@
 
     			// Remove a mistake from the map if it is corrected
     			if(hasMistake){
-					this.updateMistakes(-1);
+                    this._updateScoreState({
+                        mistakes: {
+                            value: this.mistakes - 1,
+                            animate: 'pulse'
+                        }
+                    });
     				delete this.mistakesMap[i];
     			}
     		}

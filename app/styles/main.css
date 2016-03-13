@@ -83,6 +83,14 @@ body {
   }
 }
 
+.header{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+}
+
 #start, #pause, #reset {
   min-width: 70px;
 }
@@ -113,33 +121,47 @@ body {
   resize: none;
 }
 
-#lineCount{
-  width: 3%;
-  padding-left: 0px;
-  margin: 10px 0px 0px 5px;
+#phraseLineCount, #inputLineCount{
   list-style-type: none;
   counter-reset: level1;
   float: left;
+}
+
+#inputLineCount {
+  width: 27px;
+  position: absolute;
+  margin-top: 10px;
+  padding-left: 0px;
   border-right: 1px solid #999;
   color: #666;
 }
 
-#lineCount li{
+#phraseLineCount {
+  width: 3%;
+  padding-left: 0px;
+  margin: 10px 0px 0px 5px;
+  border-right: 1px solid #999;
+  color: #666;
+}
+
+#phraseLineCount li, #inputLineCount li {
+  width: 21px;
+  text-align: right;
   float: right;
   padding-right: 6px;
 }
 
-#lineCount li:before {
-    content: counter(level1) " "; /*Instead of ". " */
-    counter-increment: level1;
+#phraseLineCount li:before, #inputLineCount li:before {
+  content: counter(level1) " "; /*Instead of ". " */
+  counter-increment: level1;
 }
 
 #keyInput{
+  color: #333;
   font-family: monospace !important;
   width: 100% !important;
   margin: 30px 0px !important;
-  padding: 10px !important;
-  font-size: 24px !important;
+  padding: 10px 10px 10px 35px !important;
   min-height: 200px !important;
   max-height: 600px !important;
 }
@@ -231,6 +253,15 @@ body {
 
 .pulse {
   animation-name: pulse;
+}
+
+.repeat{
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 #score, #mistakes {
