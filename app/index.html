@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/keyboard.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -25,30 +26,38 @@
 
     <div class="container" id="main">
       <div class="header">
-        <h3 class="text-muted">typerh</h3>
-      </div>
-
-        <div class="jumbotron row">
-          <h2>TyperH<br /><small>Practice typing with code phrases and characters</small></h2>
+        <h2>TyperH<br /><small>Practice typing with code phrases and characters</small></h2>
+        <p>
           <button id="start" class="btn btn-success">Start</button>
           <button id="pause" class="btn btn-info" disabled="disabled">Pause</button>
           <button id="reset" class="btn btn-warning" disabled="disabled">Reset</button>
-        </div>
-
-        <div class="row">
-          <div id="scoreboard">
-            <div class="col-xs-2 bg-success">Score <span id="score">0</span></div>
-            <div class="col-xs-2 bg-danger">Mistakes <span id="mistakes">0</span></div>
-            <div class="col-xs-2 bg-info">Gross WPM <span id="gwpm">0</span></div>
-            <div class="col-xs-2 bg-info">Net WPM <span id="nwpm">0</span></div>
-          </div>
           <select id="langSelect" class="form-control">
             <option data-value="js">Javascript</option>
             <option data-value="java">Java</option>
           </select>
-          <textarea id="phrase" disabled="disabled"></textarea>
-          <input id="keyInput" class="form-control" type="text"/>
+        <p>
+      </div>
+
+
+      <div class="row">
+        <div id="scoreboard">
+          <div class="col-xs-2">Score <span id="score">0</span></div>
+          <div class="col-xs-2">Mistakes <span id="mistakes">0</span></div>
+          <div class="col-xs-2">Gross WPM <span id="gwpm">0</span></div>
+          <div class="col-xs-2">Net WPM <span id="nwpm">0</span></div>
         </div>
+      </div>
+
+      <div class="row">
+        <div id="phraseWrap">
+          <textarea id="phrase" disabled="disabled"></textarea>
+          <ol id="lineCount"></ol>
+        </div>
+        <textarea id="keyInput" class="form-control" type="text"></textarea>
+      </div>
+
+      <div class="row" id="keyboard">
+      </div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span></p>
@@ -76,6 +85,8 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/extensions.js"></script>
+        <script src="scripts/keyboard.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

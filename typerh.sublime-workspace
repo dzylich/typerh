@@ -228,7 +228,8 @@
 		"/C/Users/David/Documents/typerh",
 		"/C/Users/David/Documents/typerh/app",
 		"/C/Users/David/Documents/typerh/app/scripts",
-		"/C/Users/David/Documents/typerh/app/styles"
+		"/C/Users/David/Documents/typerh/app/styles",
+		"/C/Users/David/Documents/typerh/test/spec"
 	],
 	"file_history":
 	[
@@ -469,8 +470,8 @@
 						"selection":
 						[
 							[
-								4394,
-								4394
+								1302,
+								1302
 							]
 						],
 						"settings":
@@ -480,7 +481,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2043.0,
+						"translation.y": 657.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
